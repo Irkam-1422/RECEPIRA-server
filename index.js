@@ -26,10 +26,19 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: "https://recepira-client.vercel.app/",
+        methods: ["GET", "POST"],
+        allowedHeaders: 'Content-Type, Authorization'
     }
 })
+
+/*
+const corsOptions = {
+    origin: ['https://expansion4-you-client.vercel.app', 'http://localhost:3001'],
+    methods: 'GET, POST', 
+    allowedHeaders: 'Content-Type, Authorization', 
+  };
+*/ 
 
 io.on('connection', (socket) => {
     console.log('Connected!');
