@@ -10,6 +10,9 @@ const jobSchema = new Schema({
         name: {
             type: String
         },
+        avatar: {
+            type: String
+        },
         id: {
             type: String,
             required: true
@@ -34,9 +37,12 @@ const jobSchema = new Schema({
     description: {
         type: String,
     },
-    applicants: {
-        type: [String]
-    }
+    applicants: [{
+        name: {type: String},
+        cv:  {type: String},
+        coverletter:  {type: String},
+        id:  {type: String},
+    }]
 })
 
 const Job = mongoose.model('Job',jobSchema)

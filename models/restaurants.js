@@ -27,8 +27,33 @@ const restaurantSchema = new Schema({
         type: [String]
     },
     likes: {
-        type: Number
-    }
+        type: Number,
+        default: 0
+    },
+    followers: {
+        type: [String],
+        default: []
+    },
+    following: {
+        type: [String],
+        default: []
+    },
+    chats: [{
+        room: {type: String},
+        users: [{
+            id: {type: String},
+            name: {type: String},
+            avatar: {type: String},
+        }],
+        messages: [{
+            message: {type: String},
+            from: {type: String}
+        }]
+    }],
+    messages: [{
+        room: {type: String},
+        unread: {type: Number},
+    }]
 })
 
 const Restaurant = mongoose.model('Restaurant',restaurantSchema)

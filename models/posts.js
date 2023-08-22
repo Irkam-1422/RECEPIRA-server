@@ -33,28 +33,38 @@ const postSchema = new Schema({
         required: false
     },
     ingredients: {
-        type: ingrSchema,
-        required: false
+        titleIng: {type: String},
+        items: [{
+            amount: {type: String},
+            value: {type: String},
+            name: {type: String}
+        }]
     },
     instructions: {
-        type: instrSchema,
-        required: false
+        titleInstr: {type: String},
+        steps: [{
+            text: {type: String},
+            photo: {type: String},
+        }]
     },
     author: {
         type: String,
         required: false
+    },
+    author_info: {
+        name: {type: String},
+        avatar: {type: String}
     },
     category: {
         type: String,
         required: false
     },
     hashtags: {
-        type: String,
-        required: false
+        type: [String],
+        default: []
     },
     likes: {
-        type: Number,
-        default: 0
+        type: [String],
     }
 })
 
